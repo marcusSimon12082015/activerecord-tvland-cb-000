@@ -6,7 +6,6 @@ class Actor < ActiveRecord::Base
       "#{self.first_name} #{self.last_name}"
     end
     def list_roles
-      list_of
       self.characters.collect do |c|
         show = Show.where(id:c.show_id).pluck(:name)[0]
         puts "#{c.name} - #{show}"
