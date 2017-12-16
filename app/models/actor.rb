@@ -7,7 +7,7 @@ class Actor < ActiveRecord::Base
     end
     def list_roles
       Show.where(id:1).pluck(:name)
-      binding.pry
+      #binding.pry
       self.characters.each do |c|
         puts "#{c.name} - Show.where(id:c.show_id).pluck(:name)[0]"
       end
