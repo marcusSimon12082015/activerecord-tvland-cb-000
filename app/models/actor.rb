@@ -9,7 +9,7 @@ class Actor < ActiveRecord::Base
       self.characters.each do |c|
         show = Show.where(id:c.show_id).pluck(:name)[0]
         puts "#{c.name} - #{show}"
-        binding.pry
+        #binding.pry
       end
     end
 end
