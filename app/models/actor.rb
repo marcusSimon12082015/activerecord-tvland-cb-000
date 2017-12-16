@@ -6,10 +6,12 @@ class Actor < ActiveRecord::Base
       "#{self.first_name} #{self.last_name}"
     end
     def list_roles
-      self.characters.collect do |c|
+      list_of_roles = []
+      self.characters.each do |c|
         show = Show.where(id:c.show_id).pluck(:name)[0]
-        puts "#{c.name} - #{show}"
+        "#{c.name} - #{show}" << list_of_roles
         #binding.pry
       end
+      list_of_roles
     end
 end
